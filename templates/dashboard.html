@@ -1,0 +1,83 @@
+<!-- dashboard.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        h2 {
+            color: #4285f4;
+        }
+
+        .content {
+            margin: 20px auto;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .action-button {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 12px;
+            background-color: #4285f4;
+            color: #fff;
+            text-decoration: none;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .action-button:hover {
+            background-color: #357ae8;
+        }
+
+        .action-button i {
+            font-size: 24px;
+            margin-bottom: 8px;
+        }
+
+        .logout-link {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            color: #4285f4;
+            text-decoration: none;
+        }
+
+        .logout-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <h2>Dashboard</h2>
+        <div class="button-container">
+            <a href="{{ url_for('download_files') }}" class="action-button">
+                <i class="fas fa-download"></i>
+                Download Files
+            </a>
+            <a href="{{ url_for('upload_files') }}" class="action-button">
+                <i class="fas fa-upload"></i>
+                Upload Requested Files
+            </a>
+        </div>
+    </div>
+    <a class="logout-link" href="{{ url_for('logout') }}">Logout</a>
+</body>
+</html>

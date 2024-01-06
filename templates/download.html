@@ -1,0 +1,100 @@
+<!-- download.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Download Files</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            text-align: center; /* Center align text in body */
+            position: relative;
+        }
+
+        h1 {
+            color: #4285f4;
+        }
+
+        table {
+            width: 100%;
+            max-width: 600px; /* Adjust the maximum width as needed */
+            margin: 20px auto;
+            border-collapse: collapse;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+            white-space: nowrap; /* Prevent line breaks in table cells */
+        }
+
+        th {
+            background-color: #4285f4;
+            color: #fff;
+        }
+
+        td {
+            background-color: #fff;
+        }
+
+        .download-button {
+            display: inline-block;
+            padding: 8px 12px;
+            background-color: #4285f4;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .download-button:hover {
+            background-color: #357ae8;
+        }
+
+        .logout-link, .home-link {
+            position: absolute;
+            top: 10px;
+            color: #4285f4;
+            text-decoration: none;
+        }
+
+        .logout-link {
+            top: 10px;
+            right: 10px;
+        }
+
+        .home-link {
+            left: 10px;
+            font-size: 24px;
+        }
+
+        .logout-link:hover, .home-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <a class="home-link" href="{{ url_for('dashboard_page') }}"><i class="fas fa-home"></i></a>
+    <h1>Download Files</h1>
+    <table>
+        <tr>
+            <th>Title</th>
+            <th>Link</th>
+        </tr>
+        {% for file in file_data %}
+            <tr>
+                <td>{{ file['Title'] }}</td>
+                <td><a class="download-button" href="{{ file['Link'] }}" target="_blank">Download</a></td>
+            </tr>
+        {% endfor %}
+    </table>
+    <a class="logout-link" href="{{ url_for('logout') }}">Logout</a>
+</body>
+</html>
