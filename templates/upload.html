@@ -6,7 +6,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -101,17 +100,17 @@
 </head>
 <body>
     <a class="home-link" href="{{ url_for('dashboard_page') }}"><i class="fas fa-home"></i></a>
-    <h1>Upload Requested Files</h1>
+    <h1>Upload Requested File</h1>
     <form method="post" action="/upload" enctype="multipart/form-data">
         {{ form.csrf_token }}
         {{ form.hidden_tag() }}
         
-        <input type="file" name="files" id="file-input" multiple>
-        <label for="file-input"><i class="fas fa-cloud-upload-alt"></i>Choose Files</label>
+        <input type="file" name="file" id="file-input">
+        <label for="file-input"><i class="fas fa-cloud-upload-alt"></i>Choose File</label>
         
         <div class="file-name" id="file-name-display"></div>
         
-        <button type="submit" id="upload-button" disabled>Upload Files <i class="fas fa-upload"></i></button>
+        <button type="submit" id="upload-button" disabled>Upload File <i class="fas fa-upload"></i></button>
         
         <a class="logout-link" href="{{ url_for('logout') }}">Logout</a>
     </form>
@@ -135,4 +134,5 @@
         });
     </script>
 </body>
+
 </html>
